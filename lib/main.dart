@@ -1,43 +1,40 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+import 'pagina1.dart';
+import 'pagina2.dart';
+import 'pagina3.dart';
+import 'pagina4.dart';
+import 'pagina5.dart';
+
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  static const String pag1 = Pag1.routeName;
+  static const String pag2 = Pag2.routeName;
+  static const String pag3 = Pag3.routeName;
+  static const String pag4 = Pag4.routeName;
+  static const String pag5 = Pag5.routeName;
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
+      debugShowCheckedModeBanner: false,
+      title: 'Ejemplo Drawer Menu',
       theme: ThemeData(
-        // useMaterial3: false,
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      routes: {
+        pag1: (context) => Pag1(),
+        pag2: (context) => Pag2(),
+        pag3: (context) => Pag3(),
+        pag4: (context) => Pag4(),
+        pag5: (context) => Pag5(),
+      },
+      home: Pag1(),
     );
   }
 }
